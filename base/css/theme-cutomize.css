@@ -1,0 +1,134 @@
+/* Here you can put your own css to customize and override the theme*/
+
+.top-menu{
+    float: left;
+}
+
+.top-menu .navbar-nav .btn-group{
+    margin: 8px 0 0;
+}
+
+.top-menu .navbar-nav .search-form{
+    margin-left: 15px;
+}
+
+.page-logo span{
+    color: white;
+    font-family: Roboto;
+    font-size: medium;
+    font-style: normal;
+    margin: 15px 5px 0;
+}
+
+.page-slider-heading-closed{
+    display: none !important;
+}
+
+.app_heading .app_image{
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.app_heading .app_text{
+    text-align: center;
+    color: floralwhite;
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+    font-size: large;
+    margin-bottom: 30px;
+}
+
+ul.page-sidebar-menu-closed  div.sidebar-toggler{
+    margin-bottom: 15px;
+}
+
+
+.page-content-wrapper .page-content{
+    padding: 20px;
+}
+
+.page-header.navbar .page-logo .logo-default {
+    margin: 10px 0 0 0;
+    width: 120px;
+    height: 25px;
+}
+
+.page-header.navbar {
+    background-color: #3B3F51;
+}
+.page-content {
+    background: #e9ecf3;
+}
+
+
+/*
+ *  Usage:
+ *
+ *    <div class="sk-spinner sk-spinner-three-bounce">
+ *      <div class="sk-bounce1"></div>
+ *      <div class="sk-bounce2"></div>
+ *      <div class="sk-bounce3"></div>
+ *    </div>
+ *
+ */
+.sk-spinner-three-bounce.sk-spinner {
+    margin: 0 auto;
+    width: 70px;
+    text-align: center;
+}
+
+.sk-spinner-three-bounce div {
+    width: 18px;
+    height: 18px;
+    background-color: #1ab394;
+    border-radius: 100%;
+    display: inline-block;
+    -webkit-animation: sk-threeBounceDelay 1.4s infinite ease-in-out;
+    animation: sk-threeBounceDelay 1.4s infinite ease-in-out;
+    /* Prevent first frame from flickering when animation starts */
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+.sk-spinner-three-bounce .sk-bounce1 {
+    -webkit-animation-delay: -0.32s;
+    animation-delay: -0.32s;
+}
+
+.sk-spinner-three-bounce .sk-bounce2 {
+    -webkit-animation-delay: -0.16s;
+    animation-delay: -0.16s;
+}
+
+@-webkit-keyframes sk-threeBounceDelay {
+    0%,
+    80%,
+    100% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+    }
+    40% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
+@keyframes sk-threeBounceDelay {
+    0%,
+    80%,
+    100% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+    }
+    40% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
+.dropdown-menu{
+    margin-top: 10px;
+}
+
+.page-header.navbar.navbar-fixed-top {
+    z-index: 100;
+}
