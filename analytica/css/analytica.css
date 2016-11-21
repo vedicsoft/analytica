@@ -1,0 +1,294 @@
+/**********************************************************************
+************* ANALYTICA BASIC******************************************
+**********************************************************************/
+
+.jarviswidget{
+    border: 1px #CCC solid;
+}
+
+.jarviswidget > header{
+    background: #FFF;
+    border: 1px solid rgb(204, 204, 204);
+    box-shadow: none;
+    height: 50px;
+}
+
+.dashboard-module .flipwrap,
+.dashboard-module .flipface {
+    height: 347px
+}
+
+.dashboard-module {
+    background-color: #FFF;
+    margin: -15px 0px 5px;
+    padding: 10px;
+    height: 484px;
+}
+
+.dashboard-module .flipface {
+    background-color: #fff;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.jarviswidget-ctrls .button-icon {
+    min-width: 45px;
+    height: 45px;
+}
+.jarviswidget-ctrls a {
+    font-size: 25px;
+}
+
+.widget-toolbar > .btn {
+    margin-top: 5px;
+    padding: 8px !important;
+}
+
+.change-btn-container{
+    top:5px;
+    left: 5px;
+    position: relative;
+    z-index: 10000;
+}
+.change-btn-container .btn{
+    width: 75px;
+}
+
+#metrics-change-form{
+    padding: 10px;
+    margin-top: 50px
+}
+
+.db-empty-metrics .flipwrap{
+    border-style: dotted;
+    border-color: #bbb;
+}
+
+
+.dashboard-module .flipface{
+    padding: 5px;
+}
+
+.empty-container img.addmetric-img {
+    opacity: 0.2;
+    margin: 130px 220px;
+}
+
+.empty-container img.addmetric-img:hover {
+    opacity: 0.6;
+}
+
+.download-metrics-buttons > div{
+    margin-left: 10px;
+}
+
+#static-metrics-content{
+    margin: 20px 10px;
+    border: 1px dotted black;
+    background: white;
+}
+
+#static-metrics-content > a{
+    height: 120px;
+    width: 450px;
+    margin: 15px;
+    border: 1px dotted black
+}
+
+
+.vs-analytics-item > .db-range-metrics.updated{
+    border: 1px black dotted;
+}
+
+.vs-analytics-item > .db-range-metrics{
+    border: 1px black dotted;
+}
+
+.vs-analytics-item > .db-range-metrics > header > h2 {
+    margin: 3px 10px 1px;
+    float: left;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.custom-metric-container{
+    padding: 15px;
+    text-align: center;
+    float: inherit;
+}
+
+.countup span  {
+    font-size: 3em;
+    margin: 0;
+    color: #4d63bc;
+}
+
+div.gender-image-container img{
+    height: 160px;
+}
+
+div.gender-chart-container{
+    padding: 20px;
+}
+
+/**********************************************************************
+************* CARD FLIP CSS ******************************************
+**********************************************************************/
+
+.cardflip {
+    -webkit-perspective: 3000px;
+    perspective: 3000px
+}
+
+.cardflip .flipwrap.flipped {
+    -webkit-transform: rotatex(180deg);
+    transform: rotatex(180deg)
+}
+
+.cardflip .flipwrap {
+    height: 100%
+}
+
+.cardflip .flipwrap {
+    -webkit-transition: .6s;
+    transition: .6s;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    position: relative;
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%
+}
+
+.cardflip .flipfront,
+.cardflip .flipback {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%
+}
+
+.cardflip .flipfront {
+    z-index: 2;
+    -webkit-transform: rotatex(0);
+    transform: rotatex(0);
+}
+
+.cardflip .flipback {
+    -webkit-transform: rotatex(180deg);
+    transform: rotatex(180deg);
+    padding: 20px 50px 50px;
+}
+
+.cardflip .flipback .row.header {
+    margin-bottom: 60px;
+}
+
+.cardflip .flipback .flipcancel{
+    margin-left: 310px;
+}
+
+.cardflip .flipback span.caption-subject{
+    font-size: medium;
+    font-family: inherit;
+}
+
+
+
+.cardflip .flipback .flipconfirm{
+    margin-left: 280px;
+    margin-top: 20px;
+}
+
+
+.ie-11 .cardflip,
+.ie-legacy .cardflip {
+    position: relative;
+    -ms-perspective: 3000px;
+    perspective: 3000px;
+    -ms-transform-style: preserve-3d;
+    transform-style: preserve-3d
+}
+
+.ie-11 .cardflip .flipwrap.flipped,
+.ie-legacy .cardflip .flipwrap.flipped {
+    transform: rotatex(0)
+}
+
+.ie-11 .cardflip .flipwrap,
+.ie-legacy .cardflip .flipwrap {
+    position: relative;
+    -ms-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -ms-transform-origin: 50% 50%;
+    transform-origin: 50% 50%
+}
+
+.ie-11 .cardflip .flipwrap .flipface,
+.ie-legacy .cardflip .flipwrap .flipface {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    -ms-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -ms-transition: .8s ease;
+    transition: .8s ease;
+    -ms-transform-style: preserve-3d;
+    transform-style: preserve-3d
+}
+
+.ie-11 .cardflip.flip-h .flipwrap .flipfront,
+.ie-legacy .cardflip.flip-h .flipwrap .flipfront {
+    -ms-transform: rotatey(0deg);
+    transform: rotatey(0deg)
+}
+
+.ie-11 .cardflip.flip-h .flipwrap .flipback,
+.ie-legacy .cardflip.flip-h .flipwrap .flipback {
+    -ms-transform: rotatey(-180deg);
+    transform: rotatey(-180deg)
+}
+
+.ie-11 .cardflip.flip-h .flipwrap.flipped .flipfront,
+.ie-legacy .cardflip.flip-h .flipwrap.flipped .flipfront {
+    -ms-transform: rotatey(180deg);
+    transform: rotatey(180deg)
+}
+
+.ie-11 .cardflip.flip-h .flipwrap.flipped .flipback,
+.ie-legacy .cardflip.flip-h .flipwrap.flipped .flipback {
+    -ms-transform: rotatey(0deg);
+    transform: rotatey(0deg)
+}
+
+.ie-11 .cardflip.flip-v .flipwrap .flipfront,
+.ie-legacy .cardflip.flip-v .flipwrap .flipfront {
+    z-index: 2;
+    -ms-transform: rotatex(0deg);
+    transform: rotatex(0deg)
+}
+
+.ie-11 .cardflip.flip-v .flipwrap .flipback,
+.ie-legacy .cardflip.flip-v .flipwrap .flipback {
+    -ms-transform: rotatex(-180deg);
+    transform: rotatex(-180deg)
+}
+
+.ie-11 .cardflip.flip-v .flipwrap.flipped .flipfront,
+.ie-legacy .cardflip.flip-v .flipwrap.flipped .flipfront {
+    -ms-transform: rotatex(180deg);
+    transform: rotatex(180deg)
+}
+
+.ie-11 .cardflip.flip-v .flipwrap.flipped .flipback,
+.ie-legacy .cardflip.flip-v .flipwrap.flipped .flipback {
+    -ms-transform: rotatex(0deg);
+    transform: rotatex(0deg);
+}

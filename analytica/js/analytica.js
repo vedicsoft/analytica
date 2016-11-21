@@ -5,28 +5,28 @@ var VAMPSAnalytics = (function () {
     var Templates = {};
 
     Templates.staticMetricTemplate =
-    '<a class="dashboard-stat dashboard-stat-v2 {{widget.class}} col-lg-4" href="#">'+
+        '<a class="dashboard-stat dashboard-stat-v2 {{widget.class}} col-lg-4" href="#">'+
         '<div class="visual">'+
         '<i class="fa fa-shopping-cart"></i>'+
         '</div>'+
         '<div class="details">'+
         '<div class="number">'+
         '<span data-counter="counterup" data-value="549">{{value}}&nbsp;{{format}}</span>'+
-    '</div>'+
-    '<div class="desc"> {{caption}} </div>'+
-    '</div>'+
-    '</a>';
+        '</div>'+
+        '<div class="desc"> {{caption}} </div>'+
+        '</div>'+
+        '</a>';
 
     Templates.emptyMetricTemplate =
-    '<div id="empty-metric" class="empty-container widget-body">'+
+        '<div id="empty-metric" class="empty-container widget-body">'+
         '<div class="center-block">'+
         '<img class="addmetric-img" src="components/analytica/img/add-metrics.png" data-widgetid="wid-id-{{widget.id}}" data-cardid="cardflip-{{widget.id}}">'+
-    '</div>'+
-    '</div>';
+        '</div>'+
+        '</div>';
 
     Templates.seriesMetricTemplate =
-    '<div id="widget-body-{{widget.id}}" class="widget-body">'+
-    '</div>';
+        '<div id="widget-body-{{widget.id}}" class="widget-body">'+
+        '</div>';
 
     Templates.chartTemplate =
         '<div class="chart-wrapper">' +
@@ -38,61 +38,61 @@ var VAMPSAnalytics = (function () {
 
     Templates.seriesWidgetTemplate =
         '<article id="vs-{{widget.id}}" class="vs-analytics-item col-xs-12 col-sm-6 col-md-6 col-lg-6">' +
-            '<div class="jarviswidget {{compClass}}" id="wid-id-{{widget.id}}" data-itemid="{{widget.id}}" data-widget-colorbutton="false">' +
-                '<header>' +
-                    '<h2 class="widget-title"></h2>' +
-                    '<div class="widget-toolbar">' +
-                    '<a href="javascript:;" class="flipcancel btn btn-sm red" data-widgetid="wid-id-{{widget.id}}" data-cardid="cardflip-{{widget.id}}">' +
-                    '<i class="fa fa-edit fa-3x"></i>' +
-                    '</a>' +
-                    '</div>' +
-                '</header>' +
-                '<div class="dashboard-module cardflip flip-v">' +
-                    '<div id="cardflip-{{widget.id}}" class="flipwrap">' +
-                        '<div class="flipface flipfront" id="series-content-{{widget.id}}" data-widgetid="wid-id-{{widget.id}}"' +
-                            'data-cardid="cardflip-{{widget.id}}">' +
-                        <!--load metric content and empty content according to the call-->
-                        '</div>' +
-                    '<div class="flipface flipback">' +
-                        '<div class="row header">' +
-                            '<span class="caption-subject black">Set custom dashboard module</span>' +
-                            '<button type="button" class="flipcancel btn red-sunglo" data-widgetid="wid-id-{{widget.id}}" data-cardid="cardflip-{{widget.id}}">'+
-                                    'Cancel'+
-                            '</button>' +
-                        '</div>' +
-                        '<form id="metrics-form-{{widget.id}}" role="form" class="form-horizontal metrics-change-form">' +
-                            '<div class="form-body">' +
-                                '<div class="form-group form-md-line-input">' +
-                                    '<label class="col-md-2 control-label" for="input-metrictype-{{widget.id}}">Metric' +
-                                    'Type</label>' +
-                                    '<div class="col-md-10">' +
-                                        '<select class="form-control select-metrictype " id="input-metrictype-{{widget.id}}" data-widgetid="wid-id-{{widget.id}}" data-cardid="cardflip-{{widget.id}}">' +
-                                        '{{#cats}}' +
-                                        '<option value="{{cat_id}}">{{cat_name}}</option>' +
-                                        '{{/cats}}' +
-                                        '</select>' +
-                                    '<div class="form-control-focus">' +
-                                    '</div>' +
-                                    '</div>' +
-                                '</div>' +
-                                '<div class="form-group form-md-line-input">' +
-                                    '<label class="col-md-2 control-label" for="input-metricsname-{{widget.id}}">Metric Name</label>' +
-                                '<div class="col-md-10">' +
-                                '<select class="form-control select-metricname" id="input-metricsname-{{widget.id}}" data-widgetid="wid-id-{{widget.id}}" data-cardid="cardflip-{{widget.id}}">' +
-                                '</select>' +
-                                '<div class="form-control-focus">' +
-                                '</div>' +
-                                '</div>' +
-                                '</div>' +
-                                '<div class="form-group form-md-line-input">' +
-                                '<button type="button" class="flipconfirm btn green-meadow" data-widgetid="wid-id-{{widget.id}}" data-cardid="cardflip-{{widget.id}}">Confirm </button>' +
-                                '</div>' +
-                            '</div>' +
-                        '</form>' +
-                        '</div>' +
-                    '</div>' +
-                '</div>' +
-            '</div>' +
+        '<div class="jarviswidget {{compClass}}" id="wid-id-{{widget.id}}" data-itemid="{{widget.id}}" data-widget-colorbutton="false">' +
+        '<header>' +
+        '<h2 class="widget-title"></h2>' +
+        '<div class="widget-toolbar">' +
+        '<a href="javascript:;" class="flipcancel btn btn-sm red" data-widgetid="wid-id-{{widget.id}}" data-cardid="cardflip-{{widget.id}}">' +
+        '<i class="fa fa-edit fa-3x"></i>' +
+        '</a>' +
+        '</div>' +
+        '</header>' +
+        '<div class="dashboard-module cardflip flip-v">' +
+        '<div id="cardflip-{{widget.id}}" class="flipwrap">' +
+        '<div class="flipface flipfront" id="series-content-{{widget.id}}" data-widgetid="wid-id-{{widget.id}}"' +
+        'data-cardid="cardflip-{{widget.id}}">' +
+        <!--load metric content and empty content according to the call-->
+        '</div>' +
+        '<div class="flipface flipback">' +
+        '<div class="row header">' +
+        '<span class="caption-subject black">Set custom dashboard module</span>' +
+        '<button type="button" class="flipcancel btn red-sunglo" data-widgetid="wid-id-{{widget.id}}" data-cardid="cardflip-{{widget.id}}">'+
+        'Cancel'+
+        '</button>' +
+        '</div>' +
+        '<form id="metrics-form-{{widget.id}}" role="form" class="form-horizontal metrics-change-form">' +
+        '<div class="form-body">' +
+        '<div class="form-group form-md-line-input">' +
+        '<label class="col-md-2 control-label" for="input-metrictype-{{widget.id}}">Metric' +
+        'Type</label>' +
+        '<div class="col-md-10">' +
+        '<select class="form-control select-metrictype " id="input-metrictype-{{widget.id}}" data-widgetid="wid-id-{{widget.id}}" data-cardid="cardflip-{{widget.id}}">' +
+        '{{#cats}}' +
+        '<option value="{{cat_id}}">{{cat_name}}</option>' +
+        '{{/cats}}' +
+        '</select>' +
+        '<div class="form-control-focus">' +
+        '</div>' +
+        '</div>' +
+        '</div>' +
+        '<div class="form-group form-md-line-input">' +
+        '<label class="col-md-2 control-label" for="input-metricsname-{{widget.id}}">Metric Name</label>' +
+        '<div class="col-md-10">' +
+        '<select class="form-control select-metricname" id="input-metricsname-{{widget.id}}" data-widgetid="wid-id-{{widget.id}}" data-cardid="cardflip-{{widget.id}}">' +
+        '</select>' +
+        '<div class="form-control-focus">' +
+        '</div>' +
+        '</div>' +
+        '</div>' +
+        '<div class="form-group form-md-line-input">' +
+        '<button type="button" class="flipconfirm btn green-meadow" data-widgetid="wid-id-{{widget.id}}" data-cardid="cardflip-{{widget.id}}">Confirm </button>' +
+        '</div>' +
+        '</div>' +
+        '</form>' +
+        '</div>' +
+        '</div>' +
+        '</div>' +
+        '</div>' +
         '</article>';
 
 
@@ -118,8 +118,11 @@ var VAMPSAnalytics = (function () {
                 error: function () {
                 }
             });
+        }else if(typeof metricOpt.data !== "undefined"){
+            options.caption = metricOpt.name;
+            options.value = metricOpt.data;
+            returnOutput(options)
         }
-
     };
 
     var initStaticWidget = function (returnOutput, staticOpt) {
@@ -191,7 +194,7 @@ var VAMPSAnalytics = (function () {
 
 
     var loadWidget = function (returnOutput, widgetOpt) {
-            returnOutput(Mustache.render(Templates.seriesWidgetTemplate, widgetOpt.widget));
+        returnOutput(Mustache.render(Templates.seriesWidgetTemplate, widgetOpt.widget));
     };
 
 
@@ -332,6 +335,12 @@ var VAMPSAnalytics = (function () {
                 },
                 error: function () {
                 }
+            });
+        }else if(typeof metricOpt.data !== "undefined"){
+            var metricData = metricOpt.data;
+            generateWidgetMetric(metricOpt, metricData);
+            returnSuccess({
+                success: true
             });
         }
     };
