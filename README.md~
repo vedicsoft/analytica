@@ -96,34 +96,3 @@
                 data: data
             }
         });
-
-- you can create new statuc widget using CreateStaticWidget by given properties.
-
-        var staticOpt = {
-            "widget": {
-                "id": "5830348c9f3d86d6841ad2341",
-                "position": 7,
-                "type": 1,
-                "class": "yellow"
-            }
-        };
-        
-        var staticMetricOpt = {
-            "id": 10,
-            "name": "Total Sessions",
-            "type": 1,
-            "chartOptions": {
-            }
-        }
-        
-        VAMPSAnalytics.CreateStaticWidget({
-            container: $("#static-metrics-content"),
-            staticOpt: staticOpt.widget,
-            metric: {
-            id:staticMetricOpt.id,
-            name: staticMetricOpt.name,
-            data: 10,
-            chartOptions: staticMetricOpt.chartOptions,
-            }
-        });
-

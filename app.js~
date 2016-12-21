@@ -93,9 +93,6 @@ VAMPSAnalytics.CreateWidget({
 });
 
 
-// How to apply static widget
-
-
 var staticOpt = {
 	"widget": {
 		"id": "5830348c9f3d86d6841ad2341",
@@ -111,7 +108,10 @@ var staticMetricOpt = {
 	"type": 1,
 	"chartOptions": {
 	}
-};
+}
+
+
+// How to apply static widget
 
 VAMPSAnalytics.CreateStaticWidget({
     container: $("#static-metrics-content"),
