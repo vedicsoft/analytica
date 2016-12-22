@@ -151,4 +151,4 @@
 
 
 #### Example Image
-![alt text](https://github.com/vedicsoft/analytica/blob/master/doc/analytica/img/sample.png "sample")
+![alt text](https://github.com/vedicsoft/analytica/blob/master/analytica/img/sample.png "sample")
