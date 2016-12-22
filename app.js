@@ -98,32 +98,61 @@ VAMPSAnalytics.CreateWidget({
 
 var staticOpt = {
 	"widget": {
-		"id": "5830348c9f3d86d6841ad2341",
 		"position": 7,
-		"type": 1,
 		"class": "yellow"
 	}
 };
 
 var staticMetricOpt = {
-	"id": 10,
 	"name": "Total Sessions",
-	"type": 1,
-	"chartOptions": {
-	}
+};
+
+var staticOpt2 = {
+    "widget": {
+        "position": 7,
+        "class": "red"
+    }
+};
+
+var staticMetricOpt2 = {
+    "name": "Total Download",
 };
 
 VAMPSAnalytics.CreateStaticWidget({
     container: $("#static-metrics-content"),
     staticOpt: staticOpt.widget,
     metric: {
-        id:staticMetricOpt.id,
         name: staticMetricOpt.name,
-        data: 10,
-	chartOptions: staticMetricOpt.chartOptions,
+        data: 10
     }
 });
 
+VAMPSAnalytics.CreateStaticWidget({
+    container: $("#static-metrics-content"),
+    staticOpt: staticOpt.widget,
+    metric: {
+        name: metricOpt.name,
+        "ajax": {
+            "url": "project/api/endpoint/url",
+            "type": "GET",
+            "error": function (e) {
+            },
+            "dataSrc": function (d) {
+                return d
+            }
+        }
+    }
+});
+
+
+VAMPSAnalytics.CreateStaticWidget({
+    container: $("#static-metrics-content"),
+    staticOpt: staticOpt2.widget,
+    metric: {
+        name: staticMetricOpt2.name,
+        data: "20 GB"
+    }
+});
 
 
 

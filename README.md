@@ -115,15 +115,37 @@
             "chartOptions": {
             }
         }
+    Initiate static widget on container 
+    
+    Set static widget metric value as data value
         
         VAMPSAnalytics.CreateStaticWidget({
             container: $("#static-metrics-content"),
             staticOpt: staticOpt.widget,
             metric: {
-            id:staticMetricOpt.id,
-            name: staticMetricOpt.name,
-            data: 10,
-            chartOptions: staticMetricOpt.chartOptions,
+                name: staticMetricOpt.name,
+                data: 10  // set the data value
+            }
+        });
+        
+    OR 
+    
+    Set static widget metric value by calling api endpoint that api end point return the value
+        
+        VAMPSAnalytics.CreateStaticWidget({
+            container: $("#static-metrics-content"),
+            staticOpt: staticOpt.widget,
+            metric: {
+                name: metricOpt.name,
+                "ajax": {   // set api end point
+                    "url": "project/api/endpoint/url",
+                    "type": "GET",
+                    "error": function (e) {
+                    },
+                    "dataSrc": function (d) {
+                        return d
+                    }
+                }
             }
         });
 

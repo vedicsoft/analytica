@@ -5,13 +5,13 @@ var VAMPSAnalytics = (function () {
     var Templates = {};
 
     Templates.staticMetricTemplate =
-        '<a class="dashboard-stat dashboard-stat-v2 {{widget.class}} col-lg-4" href="#">'+
+        '<a id="{{widget.id}}" class="dashboard-stat dashboard-stat-v2 {{widget.class}} col-lg-4" href="#">'+
         '<div class="visual">'+
         '<i class="fa fa-shopping-cart"></i>'+
         '</div>'+
         '<div class="details">'+
         '<div class="number">'+
-        '<span data-counter="counterup" data-value="549">{{value}}&nbsp;{{format}}</span>'+
+        '<span data-counter="counterup" data-value="549">{{value}}</span>'+
         '</div>'+
         '<div class="desc"> {{caption}} </div>'+
         '</div>'+
@@ -100,7 +100,6 @@ var VAMPSAnalytics = (function () {
 
     var loadStaticBase = function (returnOutput, data, staticOpt) {
         data.widget = staticOpt.staticOpt;
-        data.format = staticOpt.metric.chartOptions.format;
         returnOutput(Mustache.render(Templates.staticMetricTemplate, data));
     };
 
@@ -268,7 +267,7 @@ var VAMPSAnalytics = (function () {
         }
         chartOptions.element = metricOpt.generatedMetricId;
         var element = $('#' + $('#' + chartOptions.element).data('widgetid'));
-        element.find('header > h2.widget-title').html(metricOpt.name)
+        element.find('header > h2.widget-title').html(metricOpt.name);
         Charts.distributionsCharts(chartOptions);
     };
 
@@ -375,6 +374,7 @@ var VAMPSAnalytics = (function () {
             itemId = widgetComponet.data("itemid");
             metricId = widgetComponet.find('.select-metricname').val();
 
+            // There issue happen there
             DashboardMetrics.updateMetricComponent(itemId, metricId);
 
 
