@@ -15,7 +15,11 @@ var CustomHighChart = (function () {
     // [{name:"Male" , value: 12},{name:"Female", value:23}]
     var generateGenderBreakDownMetric = function (options) {
         loadGenderBreakDownTemplate(function (renderContent) {
-            $('#' + options.element).append(renderContent.content);
+            var chartEle = $('#' + options.element)
+            console.log("newewe");
+            console.log(chartEle);
+            console.log("old")
+            chartEle.append(renderContent.content);
             var metricId = options.element;
 
             var maleC = 0, femaleC = 0
@@ -84,7 +88,8 @@ var CustomHighChart = (function () {
 
     var generateDemographicMetric = function (options) {
         loadDemographicTemplate(function (renderContent) {
-            $('#' + options.element).append(renderContent.content);
+            var chartEle = $('#' + options.element)
+            chartEle.append(renderContent.content);
             var metricId = options.element;
 
             var dataSet = Charts.convertDataForCompare(options.dataSeries)
@@ -127,8 +132,11 @@ var CustomHighChart = (function () {
     } ;
 
     fns.splineCharts = function (options) {
-
-        $('#' + options.element).highcharts({
+        var chartEle = $('#' + options.element)
+        console.log("newewe");
+        console.log(chartEle);
+        console.log("old")
+        chartEle.highcharts({
             chart: {
                 zoomType: 'x'
             },
@@ -175,10 +183,12 @@ var CustomHighChart = (function () {
                 enabled: false
             }
         });
+        return chartEle;
     };
 
     fns.areaCharts = function (options) {
-        $('#' + options.element).highcharts({
+        var chartEle = $('#' + options.element)
+        chartEle.highcharts({
             chart: {
                 type: 'area',
                 zoomType: 'x'
@@ -233,10 +243,12 @@ var CustomHighChart = (function () {
             },
             series: options.dataSeries
         });
+        return chartEle;
     };
 
     fns.areasplineCharts = function (options) {
-        $('#' + options.element).highcharts({
+        var chartEle = $('#' + options.element)
+        chartEle.highcharts({
             chart: {
                 type: 'areaspline'
             },
@@ -253,7 +265,7 @@ var CustomHighChart = (function () {
                     year: '%b'
                 },
                 title: {
-                    text: 'Date'    ``
+                    text: 'Date'
                 }
             },
             yAxis: {
@@ -273,10 +285,12 @@ var CustomHighChart = (function () {
             },
             series: options.dataSeries
         });
+        return chartEle;
     };
 
     fns.columnCharts = function (options) {
-        $('#' + options.element).highcharts({
+        var chartEle = $('#' + options.element)
+        chartEle.highcharts({
             chart: {
                 type: 'column'
             },
@@ -314,10 +328,12 @@ var CustomHighChart = (function () {
             },
             series: options.dataSeries
         });
+        return chartEle
     };
 
     fns.pieCharts = function (options) {
-        $('#' + options.element).highcharts({
+        var chartEle = $('#' + options.element)
+        chartEle.highcharts({
             chart: {
                 plotBackgroundColor: null,
                 plotBorderWidth: null,
@@ -355,6 +371,7 @@ var CustomHighChart = (function () {
                 data: options.dataSeries
             }]
         });
+        return chartEle;
     };
 
     fns.customCharts = function (options) {

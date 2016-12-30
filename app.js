@@ -89,6 +89,9 @@ VAMPSAnalytics.CreateWidget({
         name: metricOpt.name,
         chartOptions: metricOpt.chartOptions,
         data: data
+    },
+    onLoad : function (widget) {
+        widget.chartEle.highcharts().reflow();
     }
 });
 

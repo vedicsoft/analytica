@@ -268,7 +268,7 @@ var VAMPSAnalytics = (function () {
         chartOptions.element = metricOpt.generatedMetricId;
         var element = $('#' + $('#' + chartOptions.element).data('widgetid'));
         element.find('header > h2.widget-title').html(metricOpt.name);
-        Charts.distributionsCharts(chartOptions);
+        return Charts.distributionsCharts(chartOptions);
     };
 
     var getRelavantParentIds = function (element) {
@@ -300,7 +300,14 @@ var VAMPSAnalytics = (function () {
             if (!(widgetOpt.metric == null || typeof widgetOpt.metric == "undefined")) {
                 var wid_container = $("#wid-id-" + widgetOpt.widget.widget.id);
                 wid_container.LoadingOverlay("show");
-                fns.RefreshWidget(wid_container, widgetOpt.metric);
+                fns.RefreshWidget(wid_container, widgetOpt.metric, function (chartEle) {
+                    console.log("inside refresh widget")
+                    console.log(chartEle)
+                    widgetOpt.onLoad({
+                        chartEle:chartEle,
+                        widgetEle : wid_container
+                    })
+                });
                 getAllWidgetsOnContainer(widgetOpt.container.attr('id')).push(widgetOpt);
             }
             initializeWidgets(widgetOpt.widget.widget.id);
@@ -313,7 +320,13 @@ var VAMPSAnalytics = (function () {
             $(content.metricbodyid).html(content.metricContent);
             var wid_container = $("#wid-id-" + widgetOpt.widget.widget.id);
             wid_container.LoadingOverlay("show");
-            fns.RefreshWidget(wid_container, widgetOpt.metric);
+            fns.RefreshWidget(wid_container, widgetOpt.metric , function (chartEle) {
+                console.log("inside refresh widget")
+                widgetOpt.onLoad({
+                    chartEle:chartEle,
+                    widgetEle : wid_container
+                })
+            });
             updateWidgetObjOnQueue(widgetOpt.container.attr('id'), widgetOpt.widget, widgetOpt.metric);
         }, widgetOpt);
     };
@@ -327,9 +340,10 @@ var VAMPSAnalytics = (function () {
                 url: metricOpt.ajax.url,
                 success: function (data) {
                     var metricData = metricOpt.ajax.dataSrc(data);
-                    generateWidgetMetric(metricOpt, metricData);
+                    var chartEle = generateWidgetMetric(metricOpt, metricData);
                     returnSuccess({
-                        success: true
+                        success: true,
+                        chartEle : chartEle
                     });
                 },
                 error: function () {
@@ -337,9 +351,10 @@ var VAMPSAnalytics = (function () {
             });
         }else if(typeof metricOpt.data !== "undefined"){
             var metricData = metricOpt.data;
-            generateWidgetMetric(metricOpt, metricData);
+            var chartEle = generateWidgetMetric(metricOpt, metricData);
             returnSuccess({
-                success: true
+                success: true,
+                chartEle : chartEle
             });
         }
     };
@@ -352,10 +367,12 @@ var VAMPSAnalytics = (function () {
         return getExistWidgetOnContainer(containerName, filter.param, filter.value);
     };
 
-    fns.RefreshWidget = function (widContainer, metricOpt) {
-        fns.InitializeMetric(function (success) {
-            if (success) {
+    fns.RefreshWidget = function (widContainer, metricOpt , returnWidget) {
+        fns.InitializeMetric(function (obj) {
+            console.log(obj)
+            if (obj.success) {
                 widContainer.LoadingOverlay("hide");
+                returnWidget(obj.chartEle);
             }
         }, metricOpt);
     };
@@ -504,26 +521,28 @@ var Charts = (function () {
     };
 
     fns.distributionsCharts = function (options) {
+        var chartElement;
         switch (options.type) {
             case "column":
-                CustomHighChart.columnCharts(options);
+                chartElement = CustomHighChart.columnCharts(options);
                 break;
             case "areaspline":
-                CustomHighChart.areasplineCharts(options);
+                chartElement = CustomHighChart.areasplineCharts(options);
                 break;
             case "spline":
-                CustomHighChart.splineCharts(options);
+                chartElement = CustomHighChart.splineCharts(options);
                 break;
             case "area":
-                CustomHighChart.areaCharts(options);
+                chartElement = CustomHighChart.areaCharts(options);
                 break;
             case "pie":
-                CustomHighChart.pieCharts(options);
+                chartElement = CustomHighChart.pieCharts(options);
                 break;
             case "custom":
                 CustomHighChart.customCharts(options);
                 break;
         }
+        return chartElement;
     };
     return fns
 })();
